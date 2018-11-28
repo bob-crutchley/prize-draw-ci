@@ -1,0 +1,34 @@
+version: '3'
+services:
+  activemq:
+    container_name: activemq
+    image: bobcrutchley/activemq
+  account_processor:
+    container_name: account-processor
+    build:
+      context: account-processor
+      args:
+      - artifact_id=account-processor
+      - version=1.0.0
+  account_service:
+    container_name: account-service
+    build:
+      context: account-service
+      args:
+      - artifact_id=account-service
+      - version=1.0.0
+  ticket_service:
+    container_name: ticket-service
+    build:
+      context: ticket-service
+      args:
+      - artifact_id=ticket-service
+      - version=0.1.0
+  offer_service:
+    container_name: offer-service
+    build:
+      context: offer-service
+      args:
+      - artifact_id=offer-service
+      - version=0.1.0
+
